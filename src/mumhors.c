@@ -1,14 +1,17 @@
 #include "mumhors.h"
 #include "bitmap.h"
 #include "sort.h"
-#include "math.h"
+#include <math.h>
+#include "mumhors_math.h"
 #include "bits.h"
 #include "hash.h"
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
 #include <stdio.h>
-
+#ifdef JOURNAL
+#include <sys/time.h>
+#endif
 #ifdef JOURNAL
 /* Timing variables */
 static struct timeval start_time, end_time;

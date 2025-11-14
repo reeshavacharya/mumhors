@@ -103,6 +103,11 @@ void mumhors_init_verifier(mumhors_verifier_t *verifier, public_key_matrix_t pk_
 /// \param verifier Pointer to MUMHORS verifier struct
 void mumhors_delete_verifier(const mumhors_verifier_t *verifier);
 
+#ifdef JOURNAL
+/* Reports aggregated timing collected when JOURNAL is enabled */
+void mumhors_report_time(int total_tests);
+#endif
+
 /// Sign the message
 /// \param signer Pointer to MUMHORS signer struct
 /// \param message Pointer to the message to be signed

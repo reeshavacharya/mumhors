@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include "bitmap.h"
 #include "sort.h"
-#include "math.h"
+#include "mumhors_math.h"
 #include <sys/time.h>
 
 #define BYTES2BITS(x) (x*8)

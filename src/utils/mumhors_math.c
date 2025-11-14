@@ -1,4 +1,4 @@
-#include "math.h"
+#include "mumhors_math.h"
 
 int min(int x, int y) {
     if (x < y)

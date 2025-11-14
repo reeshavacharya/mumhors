@@ -49,8 +49,19 @@ int main(int argc, char **argv) {
     gettimeofday(&start_time, NULL);
     mumhors_pk_gen(&pk_matrix, seed, seed_len, r, t);
     gettimeofday(&end_time, NULL);
-    double keygen_time = (end_time.tv_sec - start_time.tv_sec) + (end_time.tv_usec - start_time.tv_usec) / 1.0e6;
-    printf("KEYGEN: %0.12f\n", keygen_time);
+    /* Compute elapsed time in seconds, then convert to milliseconds */
+    double keygen_time_s = (end_time.tv_sec - start_time.tv_sec) + (end_time.tv_usec - start_time.tv_usec) / 1.0e6;
+    double keygen_time_ms = keygen_time_s * 1.0e3;
+    printf("KEYGEN: %0.6f ms\n", keygen_time_ms);
+
+    /* Average time to generate one public key (in microseconds) */
+    double total_pks = (double) rt * (double) t;
+    if (total_pks > 0) {
+        double keygen_per_pk_us = keygen_time_s * 1.0e6 / total_pks;
+        printf("KEYGEN per PK: %0.5f us (average)\n", keygen_per_pk_us);
+    } else {
+        printf("KEYGEN per PK: N/A (r*t == 0)\n");
+    }
 
 
     /*

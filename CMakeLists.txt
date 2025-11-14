@@ -18,8 +18,8 @@ add_executable(mumhors
         src/utils/debug.h
         src/utils/sort.c
         src/utils/sort.h
-        src/utils/math.c
-        src/utils/math.h
+        src/utils/mumhors_math.c
+        src/utils/mumhors_math.h
         src/mumhors.c
         src/mumhors.h
         src/crypto/sha2.c
